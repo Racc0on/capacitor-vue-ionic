@@ -10,6 +10,11 @@
       <ion-button @click="takePicture()">Take Picture Now</ion-button>
       <ion-button @click="nextPage()">Next Page</ion-button>
       <ion-button @click="scan()">SCAN</ion-button>
+      <ion-list v-if="paragraphs">
+        <ion-item v-for="(p, index) in paragraphs" :key="`paragraph_${index}`">
+          <ion-label>{{ p }}</ion-label>
+        </ion-item>
+      </ion-list>
     </ion-content>
   </div>
 </template>
@@ -20,6 +25,8 @@ import {
   CameraSource,
   CameraResultType,
 } from "@capacitor/core";
+
+import { mapGetters, mapActions } from "vuex";
 const { Camera } = Plugins;
 
 
@@ -31,7 +38,11 @@ export default {
       imageUrl: null
     };
   },
+  computed: {
+    ...mapGetters(["paragraphs"]),
+  },
   methods: {
+    ...mapActions(["getParagraphs"]),
     scan() {
        window.cordova.plugins.barcodeScanner.scan(
         function(result) {
@@ -84,17 +95,20 @@ export default {
             resultType: CameraResultType.DataUrl,
             source: CameraSource.Prompt
           });
-          console.log("image", image);
+          // console.log("image", image);
           // image.base64_data will contain the base64 encoded result as a JPEG, with the data-uri prefix added
           this.imageUrl = image.dataUrl;
           // can be set to the src of an image now
 
-          console.log(image);
+          // console.log(image);
         } catch (e) {
-          console.log("error", e);
+          // console.log("error", e);
         }
       }
     }
+  },
+  mounted () {
+    this.getParagraphs();
   }
 };
 </script>
