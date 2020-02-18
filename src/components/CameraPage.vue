@@ -6,13 +6,18 @@
       </ion-toolbar>
     </ion-header>
     <ion-content padding>
+      <div class="testing-bemify">Hello</div>
+      <div class="alert alert-warning">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong>Warning!</strong> Best check yo self, you're not looking too good.
+      </div>
       <img :src="imageUrl ? imageUrl : null" />
       <ion-button @click="takePicture()">Take Picture Now</ion-button>
       <ion-button @click="nextPage()">Next Page</ion-button>
       <ion-button @click="scan()">SCAN</ion-button>
       <ion-list v-if="paragraphs">
         <ion-item v-for="(p, index) in paragraphs" :key="`paragraph_${index}`">
-          <ion-label>{{ p }}</ion-label>
+          <ion-label><span>{{ p }}</span></ion-label>
         </ion-item>
       </ion-list>
       <template v-if="cmsData">
@@ -122,8 +127,7 @@ export default {
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style scoped lang="scss">
 h1,
 h2 {
   font-weight: normal;
@@ -137,6 +141,14 @@ li {
   margin: 0 10px;
 }
 a {
-  color: #42b983;
+  color: $primary;
+}
+ion-label {
+  span {
+    color: $primary;
+  }
+}
+@include block("testing-bemify") {
+  color: $danger;
 }
 </style>

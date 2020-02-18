@@ -5,11 +5,12 @@ import App from "./App.vue";
 import router from "./router";
 import { store } from "@/store/index.js";
 
+
 import { defineCustomElements } from '@ionic/pwa-elements/loader';
 
 
 Vue.config.productionTip = false;
-
+import "./styles/app.scss";
 Vue.use(Ionic);
 
   new Vue({
