@@ -15,6 +15,9 @@
           <ion-label>{{ p }}</ion-label>
         </ion-item>
       </ion-list>
+      <template v-if="cmsData">
+        {{ cmsData }}
+      </template>
     </ion-content>
   </div>
 </template>
@@ -35,14 +38,15 @@ export default {
   data() {
     return {
       msg: "Welcome to Your Vue Capacitor App",
-      imageUrl: null
+      imageUrl: null,
+      cmsData: null,
     };
   },
   computed: {
     ...mapGetters(["paragraphs"]),
   },
   methods: {
-    ...mapActions(["getParagraphs"]),
+    ...mapActions(["getParagraphs", "getParagraphsFromCMS"]),
     scan() {
        window.cordova.plugins.barcodeScanner.scan(
         function(result) {
@@ -109,6 +113,11 @@ export default {
   },
   mounted () {
     this.getParagraphs();
+    this.getParagraphsFromCMS("378").then(res=>{
+      /* eslint no-console: ["error", {allow: ["log"]}] */
+      console.log(res);
+      this.cmsData = res
+      });
   }
 };
 </script>
