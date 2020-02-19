@@ -14,6 +14,7 @@
       <img :src="imageUrl ? imageUrl : null" />
       <ion-button @click="takePicture()">Take Picture Now</ion-button>
       <ion-button @click="nextPage()">Next Page</ion-button>
+      <ion-button color="warning" @click="blogPage()">Blog Page</ion-button>
       <ion-button @click="scan()">SCAN</ion-button>
       <ion-list v-if="paragraphs">
         <ion-item v-for="(p, index) in paragraphs" :key="`paragraph_${index}`">
@@ -87,6 +88,9 @@ export default {
     },
     nextPage() {
       this.$router.push("/geo-location-page");
+    },
+    blogPage() {
+      this.$router.push("/blog/378");
     },
     async takePicture() {
       let isAvailable = true;

@@ -2,6 +2,8 @@ import Vue from 'vue'
 import {IonicVueRouter} from '@ionic/vue'
 import CameraPage from '@/components/CameraPage'
 import GeolocationPage from '@/components/GeolocationPage'
+const BlogPostPage = () => import(/* webpackChunkName: "users" */ "@/views/BlogPostPage.vue");
+
 
 Vue.use(IonicVueRouter)
 
@@ -16,6 +18,11 @@ export default new IonicVueRouter({
       path: '/geo-location-page',
       name: 'GeolocationPage',
       component: GeolocationPage
+    },
+    {
+      path: '/blog/:id',
+      name: 'blogPostPage',
+      component: BlogPostPage
     }
   ]
 })
