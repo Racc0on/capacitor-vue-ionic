@@ -13,6 +13,11 @@ export default {
 </script>
 
 <style>
+:root {
+  --ion-background-color: rgba(0, 0, 0,.2);
+  --ion-toolbar-background: rgba(255,255,255,1);
+  --ion-item-background: rgba(255,255,255,1);
+}
 ion-navbar.toolbar.toolbar-ios.statusbar-padding,
 ion-navbar.toolbar-ios ion-title.title-ios,
 ion-toolbar.toolbar.toolbar-ios.statusbar-padding,

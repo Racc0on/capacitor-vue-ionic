@@ -17,7 +17,7 @@
           <ion-card-subtitle>{{ data.family }}</ion-card-subtitle>
           <ion-card-title>{{ data.title }}</ion-card-title>
         </ion-card-header>
-        <ion-card-content class="quick-ar-card__content">This is a luminaire from {{ data.family}} family and of type {{ data.type}}</ion-card-content>
+        <ion-card-content class="quick-ar-card__content">{{ data.content }}</ion-card-content>
       </ion-card>
     </ion-content>
   </div>

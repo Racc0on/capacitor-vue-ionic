@@ -9,6 +9,7 @@
       </ion-toolbar>
     </ion-header>
     <ion-content padding class="project-page">
+        <div class="project-page__blur-background"></div>
         <swiper ref="slider" :options="slideOpts" class="project-page__slider">
           <swiper-slide v-for="(slide, index) in slides" :key="`${index}`" class="col-12">
             <slide
@@ -75,7 +76,23 @@
 
 <style lang="scss" scoped>
 @include block("project-page") {
+  position: relative;
+  @include element("blur-background") {
+    // position: relative;
+    // background-image: url('https://www.occhio.de/web/sites/default/files/2019-09/Mito_volo_Anzeige_header_0.png');
+    // filter: blur(4px);
+    // height: 100%;
+    // background-position: center;
+    // background-repeat: no-repeat;
+    // background-size: cover;
+  }
   @include element("slider") {
+    // position: absolute;
+    // top: 50%;
+    // left: 50%;
+    // transform: translate(-50%, -50%);
+    // z-index: 2;
+    // width: 100%;
     max-width: 950px;
   }
   .swiper-pagination-bullet.swiper-pagination-bullet-active {
