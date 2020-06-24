@@ -12,6 +12,7 @@
       <ion-button @click="scan()">SCAN</ion-button>
       <ion-button @click="goTo('/todos')">Todo</ion-button>
       <ion-button @click="goTo('/todos/add')">AddTodo</ion-button>
+      <ion-button @click="goTo('/newpage')">NewPage</ion-button>
     </ion-content>
   </div>
 </template>
@@ -72,7 +73,7 @@ export default {
 
       if (!isAvailable) {
         // Have the user upload a file instead
-        alert("No Camera Aailable");
+        alert("No Camera Abilable");
       } else {
         // Otherwise, make the call:
 
