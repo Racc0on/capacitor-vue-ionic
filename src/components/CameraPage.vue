@@ -10,6 +10,8 @@
       <ion-button @click="takePicture()">Take Picture Now</ion-button>
       <ion-button @click="nextPage()">Next Page</ion-button>
       <ion-button @click="scan()">SCAN</ion-button>
+      <ion-button @click="goTo('/todos')">Todo</ion-button>
+      <ion-button @click="goTo('/todos/add')">AddTodo</ion-button>
     </ion-content>
   </div>
 </template>
@@ -61,6 +63,9 @@ export default {
     },
     nextPage() {
       this.$router.push("/geo-location-page");
+    },
+    goTo(path) {
+      this.$router.push(path);
     },
     async takePicture() {
       let isAvailable = true;

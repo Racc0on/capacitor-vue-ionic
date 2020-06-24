@@ -2,6 +2,8 @@ import Vue from 'vue'
 import {IonicVueRouter} from '@ionic/vue'
 import CameraPage from '@/components/CameraPage'
 import GeolocationPage from '@/components/GeolocationPage'
+import TodoList from '@/components/TodoList'
+import AddTodoItem from '@/components/AddTodoItem'
 
 Vue.use(IonicVueRouter)
 
@@ -16,6 +18,8 @@ export default new IonicVueRouter({
       path: '/geo-location-page',
       name: 'GeolocationPage',
       component: GeolocationPage
-    }
+    },
+    { path: '/todos', component: TodoList },
+    { path: '/todos/add', component: AddTodoItem}
   ]
 })
